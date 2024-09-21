@@ -1,5 +1,14 @@
 import React from 'react'
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+//  <BrowserRouter> allows you to handle dynamic routing and navigate between different views of your application 
+//  without reloading the page.
+
+//  The Routes component is a container that wraps multiple Route components.
+
+// The Route component is used to define a single route in your application.
+
+
 import Home from './pages/Home';
 import About from './pages/About';
 import SignIn from './pages/SignIn';
