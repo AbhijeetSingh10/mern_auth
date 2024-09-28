@@ -8,6 +8,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRoutes from './routes/user.route.js';
+import authRoutes from './routes/auth.route.js';
 dotenv.config();
 
 // Database Connection
@@ -22,9 +23,12 @@ mongoose.connect(process.env.MONGO)
 
 const app = express();
 
+app.use(express.json());    // this will allow json as the input of our backend
+
 app.listen(3000, ()=> {
     console.log("Server listening on port 3000");   
 });
 
-app.use('/app/user', userRoutes);
+app.use('/api/user', userRoutes);
+app.use('/api/auth', authRoutes);
 
