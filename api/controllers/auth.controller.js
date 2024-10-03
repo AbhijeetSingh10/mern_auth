@@ -46,7 +46,7 @@ export const google = async (req, res, next) => {
             const generatedPassword = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8);     // 36 means 26 alphabets and 10 numbers i.e from 0 to 9
                                                                                 // but 8digit password only  // by concatinating the password will now be of 16 digits     
             const hashedPassword = bcryptjs.hashSync(generatedPassword, 10);
-            const newUser = new User({ username: req.body.name.split(" ").join("").toLowerCase() + Math.random().toString(36).slice(-8), email: req.body.email, password: hashedPassword, profilePicture: req.body.photo });                                                                    
+            const newUser = new User({ username: req.body.name.split(' ').join('').toLowerCase() + Math.random().toString(36).slice(-8), email: req.body.email, password: hashedPassword, profilePicture: req.body.photo });                                                                    
         }
         await newUser.save();
         const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
