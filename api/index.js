@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, '/client/dist')));
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
-})
+});
 
 app.use(express.json());    // this will allow json as the input of our backend
 
@@ -50,6 +50,6 @@ app.use((err, req, res, next) => {
     return res.status(statusCode).json({
         success: false,
         message,
-        statusCode
+        statusCode,
     });
 });
